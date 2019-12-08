@@ -27,7 +27,7 @@ class UrlsToHtmlExtension extends AbstractExtension
     private function getProtocolRegex(array $protocols = []): string
     {
         if (empty($protocols)) {
-            return  '[a-z]+';
+            return '[a-z]+';
         }
 
         $escapedProtocols = array_map(function ($item) {
