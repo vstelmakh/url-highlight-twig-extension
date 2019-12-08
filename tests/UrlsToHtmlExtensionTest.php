@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace VStelmakh\Twig\Extension\Tests;
 
+use Twig\TwigFilter;
 use VStelmakh\Twig\Extension\UrlsToHtmlExtension;
 use PHPUnit\Framework\TestCase;
 
@@ -16,13 +17,27 @@ class UrlsToHtmlExtensionTest extends TestCase
         $this->urlsToHtmlExtension = new UrlsToHtmlExtension();
     }
 
+    public function testGetFilters()
+    {
+        /** @var TwigFilter[] $filters */
+        $filters = $this->urlsToHtmlExtension->getFilters();
+        $urlsToHtmlFilter = $filters[0];
+
+        $name = $urlsToHtmlFilter->getName();
+        $this->assertSame('urls_to_html', $name);
+
+        $callable = $urlsToHtmlFilter->getCallable();
+        $this->assertSame([$this->urlsToHtmlExtension, 'formatUrlsToHtml'], $callable);
+    }
+
+
     /**
      * @dataProvider formatUrlsToHtmlDataProvider
      */
     public function testFormatUrlsToHtml(string $text, array $protocols, string $expected): void
     {
         $actual = $this->urlsToHtmlExtension->formatUrlsToHtml($text, $protocols);
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 
     public function formatUrlsToHtmlDataProvider(): array
