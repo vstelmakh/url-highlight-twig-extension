@@ -1,0 +1,7 @@
+{
+    "name": "vstelmakh/url-to-html-twig-extension",
+    "description": "Twig filter to convert uls to html tags",
+    "type": "library",
+    "license": "MIT",
+    "require": {}
+}
