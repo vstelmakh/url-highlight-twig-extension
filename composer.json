@@ -1,7 +1,24 @@
 {
-    "name": "vstelmakh/url-to-html-twig-extension",
+    "name": "vstelmakh/urls-to-html-twig-extension",
     "description": "Twig filter to convert uls to html tags",
+    "keywords": ["twig", "extension", "format", "url", "html"],
     "type": "library",
     "license": "MIT",
-    "require": {}
+    "require": {
+        "php": "^7.2",
+        "twig/twig": "^3.0"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "VStelmakh\\Twig\\Extension\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VStelmakh\\Twig\\Extension\\Tests\\": "tests/"
+        }
+    }
 }
