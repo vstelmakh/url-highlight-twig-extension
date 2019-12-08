@@ -13,7 +13,10 @@ class UrlsToHtmlExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('urls_to_html', [$this, 'formatUrlsToHtml']),
+            new TwigFilter('urls_to_html', [$this, 'formatUrlsToHtml'], [
+                'pre_escape' => 'html',
+                'is_safe' => ['html']
+            ]),
         ];
     }
 

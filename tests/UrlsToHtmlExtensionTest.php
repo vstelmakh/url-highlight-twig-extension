@@ -30,7 +30,6 @@ class UrlsToHtmlExtensionTest extends TestCase
         $this->assertSame([$this->urlsToHtmlExtension, 'formatUrlsToHtml'], $callable);
     }
 
-
     /**
      * @dataProvider formatUrlsToHtmlDataProvider
      */
