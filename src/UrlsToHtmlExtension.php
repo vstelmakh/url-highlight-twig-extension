@@ -8,6 +8,8 @@ use Twig\TwigFilter;
 
 class UrlsToHtmlExtension extends AbstractExtension
 {
+    private const DELIMITER = '/';
+
     public function getFilters(): array
     {
         return [
@@ -15,8 +17,23 @@ class UrlsToHtmlExtension extends AbstractExtension
         ];
     }
 
-    public function formatUrlsToHtml(string $text): string
+    public function formatUrlsToHtml(string $text, array $protocols = []): string
     {
-        return preg_replace('/(https?:\/\/[\S]+\b\/?)/i', '<a href="$1">$1</a>', $text);
+        $protocolRegex = $this->getProtocolRegex($protocols);
+        $urlRegex = self::DELIMITER . '(' . $protocolRegex . ':\/\/[\S]+\b\/?)' . self::DELIMITER . 'i';
+        return preg_replace($urlRegex, '<a href="$1">$1</a>', $text);
+    }
+
+    private function getProtocolRegex(array $protocols = []): string
+    {
+        if (empty($protocols)) {
+            return  '[a-z]+';
+        }
+
+        $escapedProtocols = array_map(function ($item) {
+            return preg_quote($item, self::DELIMITER);
+        }, $protocols);
+
+        return '(?:' . implode('|', $escapedProtocols) . ')';
     }
 }
