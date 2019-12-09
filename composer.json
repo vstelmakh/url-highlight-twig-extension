@@ -1,7 +1,7 @@
 {
-    "name": "vstelmakh/urls-to-html-twig-extension",
-    "description": "Twig filter to convert uls to html tags",
-    "keywords": ["twig", "extension", "format", "url", "html"],
+    "name": "vstelmakh/twig-url-highlight",
+    "description": "Twig filter to convert urls to html tags",
+    "keywords": ["twig", "extension", "highlight", "url", "html"],
     "type": "library",
     "license": "MIT",
     "require": {
