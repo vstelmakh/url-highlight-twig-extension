@@ -5,10 +5,10 @@ namespace VStelmakh\Twig\Extension\Tests;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use VStelmakh\Twig\Extension\UrlsToHtmlExtension;
+use VStelmakh\Twig\Extension\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
 
-class UrlsToHtmlExtensionIntegrationTest extends TestCase
+class UrlHighlightExtensionIntegrationTest extends TestCase
 {
     /** @var Environment */
     private $twig;
@@ -17,7 +17,7 @@ class UrlsToHtmlExtensionIntegrationTest extends TestCase
     {
         $loader = new FilesystemLoader('');
         $this->twig = new Environment($loader, []);
-        $this->twig->addExtension(new UrlsToHtmlExtension());
+        $this->twig->addExtension(new UrlHighlightExtension());
     }
 
     /**

@@ -6,7 +6,7 @@ namespace VStelmakh\Twig\Extension;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class UrlsToHtmlExtension extends AbstractExtension
+class UrlHighlightExtension extends AbstractExtension
 {
     private const DELIMITER = '/';
 

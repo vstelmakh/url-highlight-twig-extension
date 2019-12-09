@@ -4,17 +4,17 @@ declare(strict_types=1);
 namespace VStelmakh\Twig\Extension\Tests;
 
 use Twig\TwigFilter;
-use VStelmakh\Twig\Extension\UrlsToHtmlExtension;
+use VStelmakh\Twig\Extension\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
 
-class UrlsToHtmlExtensionTest extends TestCase
+class UrlHighlightExtensionTest extends TestCase
 {
-    /** @var UrlsToHtmlExtension */
+    /** @var UrlHighlightExtension */
     private $urlsToHtmlExtension;
 
     public function setUp(): void
     {
-        $this->urlsToHtmlExtension = new UrlsToHtmlExtension();
+        $this->urlsToHtmlExtension = new UrlHighlightExtension();
     }
 
     public function testGetFilters()
