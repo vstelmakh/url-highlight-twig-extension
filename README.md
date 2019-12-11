@@ -2,8 +2,6 @@
 Twig filter to convert urls to html tags  
 
 ## Installation
-Using Symfony? There is a bundle available: [Twig url highlight bundle](https://github.com/vstelmakh/twig-url-highlight-bundle)  
-
 Install the latest version with:  
 ```bash
 $ composer require vstelmakh/twig-url-highlight
@@ -27,18 +25,18 @@ $twig->addExtension(new UrlHighlightExtension());
 ```
 
 ## Usage
-Now you could use `urls_to_html` filter in your templates:  
+Use `urls_to_html` filter in your templates:  
 ```twig
 {{ 'Basic example http://example.com'|urls_to_html }}
-will output:
-Basic example <a href="http://example.com">http://example.com</a>
+
+{# output: Basic example <a href="http://example.com">http://example.com</a> #}
 ```
 
 With explicitly defined protocols:  
 ```twig
 {{ 'Basic example http://example.com or ftp://example.com'|urls_to_html(['http', 'https']) }}
-will output:
-Basic example <a href="http://example.com">http://example.com</a> or ftp://example.com
+
+{# output: Basic example <a href="http://example.com">http://example.com</a> or ftp://example.com #}
 ```
 
 ## Credits
