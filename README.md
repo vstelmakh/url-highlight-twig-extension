@@ -4,7 +4,7 @@ Twig filter to convert urls to html tags
 ## Installation
 Install the latest version with:  
 ```bash
-$ composer require vstelmakh/twig-url-highlight
+$ composer require vstelmakh/twig-url-highlight dev-master
 ```
 
 ## Setup
