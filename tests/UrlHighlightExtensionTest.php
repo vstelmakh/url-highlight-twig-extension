@@ -17,7 +17,7 @@ class UrlHighlightExtensionTest extends TestCase
         $this->urlsToHtmlExtension = new UrlHighlightExtension();
     }
 
-    public function testGetFilters()
+    public function testGetFilters(): void
     {
         /** @var TwigFilter[] $filters */
         $filters = $this->urlsToHtmlExtension->getFilters();
