@@ -14,7 +14,7 @@ Add extension to your twig environment:
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use VStelmakh\Twig\Extension\UrlHighlightExtension;
+use VStelmakh\TwigUrlHighlightExtension\UrlHighlightExtension;
 
 // create twig environment
 $loader = new FilesystemLoader('/path/to/templates');

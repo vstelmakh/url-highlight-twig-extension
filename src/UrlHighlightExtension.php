@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace VStelmakh\Twig\Extension;
+namespace VStelmakh\TwigUrlHighlightExtension;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

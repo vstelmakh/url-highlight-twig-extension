@@ -13,12 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VStelmakh\\Twig\\Extension\\": "src/"
+            "VStelmakh\\TwigUrlHighlightExtension\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VStelmakh\\Twig\\Extension\\Tests\\": "tests/"
+            "VStelmakh\\TwigUrlHighlightExtension\\Tests\\": "tests/"
         }
     }
 }
