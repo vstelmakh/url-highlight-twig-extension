@@ -2,9 +2,11 @@
 Twig filter to convert urls to html tags  
 
 ## Installation
+Using Symfony? There is a bundle available: [Twig url highlight bundle](https://github.com/vstelmakh/twig-url-highlight-bundle)  
+
 Install the latest version with:  
 ```bash
-$ composer require vstelmakh/twig-url-highlight dev-master
+$ composer require vstelmakh/twig-url-highlight
 ```
 
 ## Setup
