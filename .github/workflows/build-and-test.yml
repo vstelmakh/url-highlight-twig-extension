@@ -1,0 +1,26 @@
+name: Build and Test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
+
+      - name: Run PHP Code Sniffer
+        run: composer run-script test:phpcs
+
+      - name: Run PHP Stan
+        run: composer run-script test:phpstan
+
+      - name: Run PHP Unit
+        run: composer run-script test:phpunit
