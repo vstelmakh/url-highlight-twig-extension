@@ -22,5 +22,21 @@
         "psr-4": {
             "VStelmakh\\TwigUrlHighlightExtension\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test:phpcs": "vendor/bin/phpcs -n",
+        "test:phpstan": "phpstan analyse --ansi",
+        "test:phpunit": "phpunit --colors=always",
+        "test:all": [
+            "@test:phpcs",
+            "@test:phpstan",
+            "@test:phpunit"
+        ]
+    },
+    "scripts-descriptions": {
+        "test:phpcs": "Run PHP Code Sniffer",
+        "test:phpstan": "Run PHP Stan",
+        "test:phpunit": "Run PHP Unit",
+        "test:all": "Run all code analysis and tests"
     }
 }
