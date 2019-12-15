@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace VStelmakh\TwigUrlHighlightExtension\Tests;
+namespace VStelmakh\TwigUrlHighlight\Tests;
 
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
-use VStelmakh\TwigUrlHighlightExtension\UrlHighlightExtension;
+use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
 
 class UrlHighlightExtensionIntegrationTest extends TestCase

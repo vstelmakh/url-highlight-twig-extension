@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace VStelmakh\TwigUrlHighlightExtension\Tests;
+namespace VStelmakh\TwigUrlHighlight\Tests;
 
 use Twig\TwigFilter;
-use VStelmakh\TwigUrlHighlightExtension\UrlHighlightExtension;
+use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
 
 class UrlHighlightExtensionTest extends TestCase

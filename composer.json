@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VStelmakh\\TwigUrlHighlightExtension\\": "src/"
+            "VStelmakh\\TwigUrlHighlight\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VStelmakh\\TwigUrlHighlightExtension\\Tests\\": "tests/"
+            "VStelmakh\\TwigUrlHighlight\\Tests\\": "tests/"
         }
     },
     "scripts": {
