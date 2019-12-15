@@ -20,7 +20,7 @@ Add extension to your twig environment:
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use VStelmakh\TwigUrlHighlightExtension\UrlHighlightExtension;
+use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
 
 // create twig environment
 $loader = new FilesystemLoader('/path/to/templates');
