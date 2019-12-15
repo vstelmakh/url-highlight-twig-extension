@@ -10,6 +10,9 @@ class UrlHighlightExtension extends AbstractExtension
 {
     private const DELIMITER = '/';
 
+    /**
+     * @return array|TwigFilter[]
+     */
     public function getFilters(): array
     {
         return [
@@ -20,6 +23,11 @@ class UrlHighlightExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param string $text
+     * @param array|string[] $protocols
+     * @return string
+     */
     public function formatUrlsToHtml(string $text, array $protocols = []): string
     {
         $protocolRegex = $this->getProtocolRegex($protocols);
@@ -27,6 +35,10 @@ class UrlHighlightExtension extends AbstractExtension
         return preg_replace($urlRegex, '<a href="$1">$1</a>', $text);
     }
 
+    /**
+     * @param array|string[] $protocols
+     * @return string
+     */
     private function getProtocolRegex(array $protocols = []): string
     {
         if (empty($protocols)) {

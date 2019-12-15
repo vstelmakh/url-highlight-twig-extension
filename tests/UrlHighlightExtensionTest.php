@@ -32,6 +32,10 @@ class UrlHighlightExtensionTest extends TestCase
 
     /**
      * @dataProvider formatUrlsToHtmlDataProvider
+     *
+     * @param string $text
+     * @param array|string[] $protocols
+     * @param string $expected
      */
     public function testFormatUrlsToHtml(string $text, array $protocols, string $expected): void
     {
@@ -39,6 +43,9 @@ class UrlHighlightExtensionTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
+    /**
+     * @return array|array[]
+     */
     public function formatUrlsToHtmlDataProvider(): array
     {
         return [

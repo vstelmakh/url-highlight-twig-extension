@@ -4,6 +4,9 @@ declare(strict_types=1);
 namespace VStelmakh\TwigUrlHighlightExtension\Tests;
 
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 use VStelmakh\TwigUrlHighlightExtension\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
@@ -22,6 +25,13 @@ class UrlHighlightExtensionIntegrationTest extends TestCase
 
     /**
      * @dataProvider formatUrlsToHtmlPreEscapeIsSafeDataProvider
+     *
+     * @param string $text
+     * @param string $expected
+     *
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function testFormatUrlsToHtmlPreEscapeIsSafe(string $text, string $expected): void
     {
@@ -31,6 +41,9 @@ class UrlHighlightExtensionIntegrationTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
+    /**
+     * @return array|array[]
+     */
     public function formatUrlsToHtmlPreEscapeIsSafeDataProvider(): array
     {
         return [
