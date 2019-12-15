@@ -18,9 +18,12 @@ jobs:
 
       - name: Run PHP Code Sniffer
         run: composer run-script test:phpcs
+        if: success()
 
       - name: Run PHP Stan
         run: composer run-script test:phpstan
+        if: success() || failure()
 
       - name: Run PHP Unit
         run: composer run-script test:phpunit
+        if: success() || failure()
