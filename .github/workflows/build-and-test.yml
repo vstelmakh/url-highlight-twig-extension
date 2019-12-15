@@ -3,10 +3,9 @@ name: Build and Test
 on: [push]
 
 jobs:
-  build:
-
+  build-and-test:
+    name: Build and test
     runs-on: ubuntu-latest
-
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
