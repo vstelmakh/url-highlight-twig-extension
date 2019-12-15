@@ -25,7 +25,7 @@
     },
     "scripts": {
         "test:phpcs": "vendor/bin/phpcs -n",
-        "test:phpstan": "phpstan analyse --ansi",
+        "test:phpstan": "phpstan analyse --ansi --no-progress",
         "test:phpunit": "phpunit --colors=always",
         "test:all": [
             "@test:phpcs",
