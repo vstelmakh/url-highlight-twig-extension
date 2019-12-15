@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace VStelmakh\TwigUrlHighlightExtension;
@@ -32,7 +33,7 @@ class UrlHighlightExtension extends AbstractExtension
     {
         $protocolRegex = $this->getProtocolRegex($protocols);
         $urlRegex = self::DELIMITER . '(' . $protocolRegex . ':\/\/[\S]+\b\/?)' . self::DELIMITER . 'i';
-        return preg_replace($urlRegex, '<a href="$1">$1</a>', $text);
+        return preg_replace($urlRegex, '<a href="$1">$1</a>', $text) ?? $text;
     }
 
     /**
