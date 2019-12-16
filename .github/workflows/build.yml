@@ -1,16 +1,25 @@
 name: build
 
-on: [push]
+on:
+  push:
+  schedule:
+    - cron: '0 12 * * 0'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        twig: ['^1.38', '^2', '^3']
     steps:
       - name: Git checkout
         uses: actions/checkout@v1
 
       - name: Validate composer.json and composer.lock
         run: composer validate
+
+      - name: Require Twig dependency
+        run: composer require --no-update twig/twig:${{ matrix.twig }}
 
       - name: Get Composer cache dir
         id: composer-cache
@@ -20,11 +29,11 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
+          key: ${{ runner.os }}-${{ matrix.twig }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.twig }}-composer-
 
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
+      - name: Update Composer dependencies
+        run: composer update --prefer-lowest --prefer-dist --no-progress --no-suggest --no-interaction
 
       - name: Run PHP Code Sniffer
         run: composer run-script test:phpcs
