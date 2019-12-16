@@ -1,5 +1,5 @@
 # Twig url highlight
-![Build status](https://github.com/vstelmakh/twig-url-highlight/workflows/Build%20and%20Test/badge.svg?branch=master)
+![Build status](https://github.com/vstelmakh/twig-url-highlight/workflows/build/badge.svg?branch=master)
 ![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/twig-url-highlight)
 ![License](https://img.shields.io/github/license/vstelmakh/twig-url-highlight)
 
