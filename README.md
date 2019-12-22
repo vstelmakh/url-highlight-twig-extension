@@ -1,16 +1,16 @@
 # Twig url highlight
-![Build status](https://github.com/vstelmakh/twig-url-highlight/workflows/build/badge.svg?branch=master)
-![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/twig-url-highlight)
-![License](https://img.shields.io/github/license/vstelmakh/twig-url-highlight)
+![Build status](https://github.com/vstelmakh/url-highlight-twig-extension/workflows/build/badge.svg?branch=master)
+![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/url-highlight-twig-extension)
+![License](https://img.shields.io/github/license/vstelmakh/url-highlight-twig-extension)
 
-Twig filter to convert urls to html tags  
+Twig extension for [Url highlight](https://github.com/vstelmakh/url-highlight) library  
 
 ## Installation
-Using Symfony? There is a bundle available: [Twig url highlight bundle](https://github.com/vstelmakh/twig-url-highlight-bundle)  
+Using Symfony? There is a bundle available: [Url highlight symfony bundle](https://github.com/vstelmakh/url-highlight-symfony-bundle)  
 
 Install the latest version with:  
 ```bash
-$ composer require vstelmakh/twig-url-highlight
+$ composer require vstelmakh/url-highlight-twig-extension
 ```
 
 ## Setup
@@ -20,7 +20,7 @@ Add extension to your twig environment:
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
+use VStelmakh\UrlHighlightTwigExtension\UrlHighlightExtension;
 
 // create twig environment
 $loader = new FilesystemLoader('/path/to/templates');

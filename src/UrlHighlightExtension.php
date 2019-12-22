@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VStelmakh\TwigUrlHighlight;
+namespace VStelmakh\UrlHighlightTwigExtension;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

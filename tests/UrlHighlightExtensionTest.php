@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace VStelmakh\TwigUrlHighlight\Tests;
+namespace VStelmakh\UrlHighlightTwigExtension\Tests;
 
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -12,7 +12,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 use PHPUnit\Framework\TestCase;
 use VStelmakh\UrlHighlight\UrlHighlight;
-use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
+use VStelmakh\UrlHighlightTwigExtension\UrlHighlightExtension;
 
 class UrlHighlightExtensionTest extends TestCase
 {

@@ -1,6 +1,6 @@
 {
-    "name": "vstelmakh/twig-url-highlight",
-    "description": "Twig filter to convert urls to html tags",
+    "name": "vstelmakh/url-highlight-twig-extension",
+    "description": "Twig extension for url highlight library",
     "keywords": ["twig", "extension", "highlight", "url", "html"],
     "type": "library",
     "license": "MIT",
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VStelmakh\\TwigUrlHighlight\\": "src/"
+            "VStelmakh\\UrlHighlightTwigExtension\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VStelmakh\\TwigUrlHighlight\\Tests\\": "tests/"
+            "VStelmakh\\UrlHighlightTwigExtension\\Tests\\": "tests/"
         }
     },
     "scripts": {
