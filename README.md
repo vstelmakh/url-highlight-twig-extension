@@ -38,13 +38,6 @@ Use `urls_to_html` filter in your templates:
 {# output: Basic example <a href="http://example.com">http://example.com</a> #}
 ```
 
-With explicitly defined protocols:  
-```twig
-{{ 'Basic example http://example.com or ftp://example.com'|urls_to_html(['http', 'https']) }}
-
-{# output: Basic example <a href="http://example.com">http://example.com</a> or ftp://example.com #}
-```
-
 ## Credits
 [Volodymyr Stelmakh](https://github.com/vstelmakh)  
 Licensed under the MIT License. See [LICENSE](LICENSE) for more information.  
