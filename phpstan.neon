@@ -3,3 +3,9 @@ parameters:
     paths:
         - src
         - tests
+
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        -
+            message: '#Cannot access offset 0 on (callable(): mixed)|null.#'
+            path: %rootDir%/../../../tests/UrlHighlightExtensionTest.php
