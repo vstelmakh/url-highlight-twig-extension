@@ -4,18 +4,31 @@ declare(strict_types=1);
 
 namespace VStelmakh\TwigUrlHighlight\Tests;
 
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
-use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
 use PHPUnit\Framework\TestCase;
+use VStelmakh\UrlHighlight\UrlHighlight;
+use VStelmakh\TwigUrlHighlight\UrlHighlightExtension;
 
 class UrlHighlightExtensionTest extends TestCase
 {
     /** @var UrlHighlightExtension */
     private $urlsToHtmlExtension;
 
+    /** @var Environment */
+    private $twig;
+
     public function setUp(): void
     {
         $this->urlsToHtmlExtension = new UrlHighlightExtension();
+
+        $loader = new FilesystemLoader('');
+        $this->twig = new Environment($loader, []);
+        $this->twig->addExtension($this->urlsToHtmlExtension);
     }
 
     public function testGetFilters(): void
@@ -28,41 +41,23 @@ class UrlHighlightExtensionTest extends TestCase
         $this->assertSame('urls_to_html', $name);
 
         $callable = $urlsToHtmlFilter->getCallable();
-        $this->assertSame([$this->urlsToHtmlExtension, 'formatUrlsToHtml'], $callable);
+        $this->assertInstanceOf(UrlHighlight::class, $callable[0]);
+        $this->assertSame('highlightUrls', $callable[1]);
     }
 
     /**
-     * @dataProvider formatUrlsToHtmlDataProvider
-     *
-     * @param string $text
-     * @param array|string[] $protocols
-     * @param string $expected
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function testFormatUrlsToHtml(string $text, array $protocols, string $expected): void
+    public function testUrlsToHtml(): void
     {
-        $actual = $this->urlsToHtmlExtension->formatUrlsToHtml($text, $protocols);
+        $text = '<h1>Test</h1><div>This is example: http://example.com.</div>';
+        $expected = '<h1>Test</h1><div>This is example: <a href="http://example.com">http://example.com</a>.</div>';
+
+        $template = $this->twig->createTemplate('{{ text|urls_to_html }}');
+        $actual = $this->twig->render($template, ['text' => $text]);
+
         $this->assertSame($expected, $actual);
-    }
-
-    /**
-     * @return array|array[]
-     */
-    public function formatUrlsToHtmlDataProvider(): array
-    {
-        return [
-            ['http://example.com', [], '<a href="http://example.com">http://example.com</a>'],
-            ['http://example.com/', [], '<a href="http://example.com/">http://example.com/</a>'],
-            ['http://example.com/path?var=a&var2=b#anchor', [], '<a href="http://example.com/path?var=a&var2=b#anchor">http://example.com/path?var=a&var2=b#anchor</a>'],
-            ['//http://example.com/path?var=a&var2=b#anchor', [], '//<a href="http://example.com/path?var=a&var2=b#anchor">http://example.com/path?var=a&var2=b#anchor</a>'],
-            [':http://example.com/path?var=a&var2=b#anchor', [], ':<a href="http://example.com/path?var=a&var2=b#anchor">http://example.com/path?var=a&var2=b#anchor</a>'],
-            [':http://example.com/path?var=a&var2=b#anchor:', [], ':<a href="http://example.com/path?var=a&var2=b#anchor">http://example.com/path?var=a&var2=b#anchor</a>:'],
-            [',http://example.com/path?var=a&var2=b#anchor.', [], ',<a href="http://example.com/path?var=a&var2=b#anchor">http://example.com/path?var=a&var2=b#anchor</a>.'],
-            ['Url http://example.com, in the middle of the text', [], 'Url <a href="http://example.com">http://example.com</a>, in the middle of the text'],
-            ['Url: http://example.com/. In the middle of the text.', [], 'Url: <a href="http://example.com/">http://example.com/</a>. In the middle of the text.'],
-            ['Some text here http://example.com/path/here?var=1qwe=asd, and than other text. And another url https://example2.com/ here.', [], 'Some text here <a href="http://example.com/path/here?var=1qwe=asd">http://example.com/path/here?var=1qwe=asd</a>, and than other text. And another url <a href="https://example2.com/">https://example2.com/</a> here.'],
-            ['http://example.com', ['https'], 'http://example.com'],
-            ['https://example.com', ['https'], '<a href="https://example.com">https://example.com</a>'],
-            ['Some text here http://example.com. Secure not allowed: https://example.com.', ['http'], 'Some text here <a href="http://example.com">http://example.com</a>. Secure not allowed: https://example.com.'],
-        ];
     }
 }
