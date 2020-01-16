@@ -30,6 +30,16 @@ $twig = new Environment($loader, []);
 $twig->addExtension(new UrlHighlightExtension());
 ```
 
+## Configuration
+Additional options could be provided via constructor. For available options see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
+
+Example:
+```php
+new UrlHighlightExtension([
+    'match_by_tld' => false,
+]);
+```
+
 ## Usage
 Use `urls_to_html` filter in your templates:  
 ```twig
