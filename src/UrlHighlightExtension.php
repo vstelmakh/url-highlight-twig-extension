@@ -14,11 +14,11 @@ class UrlHighlightExtension extends AbstractExtension
     private $urlHighlight;
 
     /**
-     * @param array|mixed[] $options
+     * @param UrlHighlight $urlHighlight
      */
-    public function __construct(array $options = [])
+    public function __construct(UrlHighlight $urlHighlight)
     {
-        $this->urlHighlight = new UrlHighlight($options);
+        $this->urlHighlight = $urlHighlight;
     }
 
     /**

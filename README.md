@@ -20,6 +20,7 @@ Add extension to your twig environment:
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use VStelmakh\UrlHighlight\UrlHighlight;
 use VStelmakh\UrlHighlightTwigExtension\UrlHighlightExtension;
 
 // create twig environment
@@ -27,15 +28,16 @@ $loader = new FilesystemLoader('/path/to/templates');
 $twig = new Environment($loader, []);
 
 // add extension
-$twig->addExtension(new UrlHighlightExtension());
+$urlHighlight = new UrlHighlight();
+$twig->addExtension(new UrlHighlightExtension($urlHighlight));
 ```
 
 ## Configuration
-Additional options could be provided via constructor. For available options see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
+Additional options could be provided via UrlHighlight constructor. For available options see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
 
 Example:
 ```php
-new UrlHighlightExtension([
+new UrlHighlight([
     'match_by_tld' => false,
 ]);
 ```
