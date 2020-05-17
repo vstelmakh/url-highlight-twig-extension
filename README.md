@@ -1,7 +1,8 @@
 # Twig url highlight
-![Build status](https://github.com/vstelmakh/url-highlight-twig-extension/workflows/build/badge.svg?branch=master)
-![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/url-highlight-twig-extension)
-![License](https://img.shields.io/github/license/vstelmakh/url-highlight-twig-extension)
+[![Build status](https://github.com/vstelmakh/url-highlight-twig-extension/workflows/build/badge.svg?branch=master)](https://github.com/vstelmakh/url-highlight-twig-extension/actions)
+[![Packagist version](https://img.shields.io/packagist/v/vstelmakh/url-highlight-twig-extension?color=orange)](https://packagist.org/packages/vstelmakh/url-highlight-twig-extension)
+[![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/url-highlight-twig-extension)](https://www.php.net/)
+[![License](https://img.shields.io/github/license/vstelmakh/url-highlight-twig-extension?color=yellowgreen)](LICENSE)
 
 Twig extension for [Url highlight](https://github.com/vstelmakh/url-highlight) library  
 
