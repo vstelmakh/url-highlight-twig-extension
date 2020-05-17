@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.1",
         "twig/twig": "^1.38|^2.7|^3",
-        "vstelmakh/url-highlight": "^1.2"
+        "vstelmakh/url-highlight": "^2"
     },
     "require-dev" : {
         "phpunit/phpunit": "^8",

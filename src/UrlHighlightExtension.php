@@ -10,7 +10,9 @@ use VStelmakh\UrlHighlight\UrlHighlight;
 
 class UrlHighlightExtension extends AbstractExtension
 {
-    /** @var UrlHighlight */
+    /**
+     * @var UrlHighlight
+     */
     private $urlHighlight;
 
     /**
@@ -22,7 +24,7 @@ class UrlHighlightExtension extends AbstractExtension
     }
 
     /**
-     * @return array|TwigFilter[]
+     * @return array&TwigFilter[]
      */
     public function getFilters(): array
     {
