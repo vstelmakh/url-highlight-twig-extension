@@ -17,7 +17,6 @@ $ composer require vstelmakh/url-highlight-twig-extension
 Add extension to your twig environment:  
 ```php
 <?php
-
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 use VStelmakh\UrlHighlight\UrlHighlight;
@@ -32,22 +31,25 @@ $urlHighlight = new UrlHighlight();
 $twig->addExtension(new UrlHighlightExtension($urlHighlight));
 ```
 
-## Configuration
-Additional options could be provided via UrlHighlight constructor. For available options see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
-
-Example:
-```php
-new UrlHighlight([
-    'match_by_tld' => false,
-]);
-```
-
 ## Usage
 Use `urls_to_html` filter in your templates:  
 ```twig
 {{ 'Basic example http://example.com'|urls_to_html }}
 
 {# output: Basic example <a href="http://example.com">http://example.com</a> #}
+```
+
+To properly handle HTML entity escaped string, use [Encoder](https://github.com/vstelmakh/url-highlight#encoder).
+
+## Configuration
+Additional options could be provided via UrlHighlight constructor. For more details see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
+
+Example:
+```php
+<?php
+$encoder = new HtmlSpecialcharsEncoder();
+$urlHighlight = new UrlHighlight(null, null, $encoder);
+$twig->addExtension(new UrlHighlightExtension($urlHighlight));
 ```
 
 ## Credits
