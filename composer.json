@@ -4,6 +4,13 @@
     "keywords": ["twig", "extension", "highlight", "url", "html"],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/vstelmakh/url-highlight-twig-extension",
+    "authors": [
+        {
+            "name": "Volodymyr Stelmakh",
+            "homepage": "https://github.com/vstelmakh"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "twig/twig": "^1.38|^2.7|^3",
