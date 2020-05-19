@@ -40,7 +40,8 @@ Use `urls_to_html` filter in your templates:
 {# output: Basic example <a href="http://example.com">http://example.com</a> #}
 ```
 
-To properly handle HTML entity escaped string, use [Encoder](https://github.com/vstelmakh/url-highlight#encoder).
+To properly handle HTML entity escaped string, use [Encoder](https://github.com/vstelmakh/url-highlight#encoder).  
+See configuration example below.
 
 ## Configuration
 Additional options could be provided via UrlHighlight constructor. For more details see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
@@ -48,9 +49,24 @@ Additional options could be provided via UrlHighlight constructor. For more deta
 Example:
 ```php
 <?php
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+use VStelmakh\UrlHighlight\Encoder\HtmlSpecialcharsEncoder;
+use VStelmakh\UrlHighlight\UrlHighlight;
+use VStelmakh\UrlHighlightTwigExtension\UrlHighlightExtension;
+
+$loader = new FilesystemLoader('/path/to/templates');
+$twig = new Environment($loader, []);
+
 $encoder = new HtmlSpecialcharsEncoder();
 $urlHighlight = new UrlHighlight(null, null, $encoder);
 $twig->addExtension(new UrlHighlightExtension($urlHighlight));
+```
+Now escaped input will be handled properly:
+```twig
+{{ '<a href="http://example.com?a=1&b=2">Example</a>'|escape|urls_to_html }}
+
+{# output: &lt;a href=&quot;<a href="http://example.com?a=1&b=2">http://example.com?a=1&amp;b=2</a>&quot;&gt;Example&lt;/a&gt; #}
 ```
 
 ## Credits
