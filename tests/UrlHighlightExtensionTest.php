@@ -11,6 +11,7 @@ use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 use PHPUnit\Framework\TestCase;
+use VStelmakh\UrlHighlight\Encoder\HtmlSpecialcharsEncoder;
 use VStelmakh\UrlHighlight\UrlHighlight;
 use VStelmakh\UrlHighlightTwigExtension\UrlHighlightExtension;
 
@@ -28,7 +29,8 @@ class UrlHighlightExtensionTest extends TestCase
 
     public function setUp(): void
     {
-        $this->urlHighlight = new UrlHighlight();
+        $encoder = new HtmlSpecialcharsEncoder();
+        $this->urlHighlight = new UrlHighlight(null, null, $encoder);
         $this->urlHighlightExtension = new UrlHighlightExtension($this->urlHighlight);
     }
 
@@ -59,6 +61,24 @@ class UrlHighlightExtensionTest extends TestCase
         $expected = '<h1>Test</h1><div>This is example: <a href="http://example.com">http://example.com</a>.</div>';
 
         $template = $twig->createTemplate('{{ text|urls_to_html }}');
+        $actual = $twig->render($template, ['text' => $text]);
+
+        $this->assertSame($expected, $actual);
+    }
+
+    /**
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function testUrlsToHtmlEscape(): void
+    {
+        $twig = $this->createTwig($this->urlHighlightExtension);
+
+        $text = '<a href="http://example.com&a=b">http://example.com</a> and <div>http://example.com&a=b</div>';
+        $expected = '&lt;a href=&quot;<a href="http://example.com&a=b">http://example.com&amp;a=b</a>&quot;&gt;<a href="http://example.com">http://example.com</a>&lt;/a&gt; and &lt;div&gt;<a href="http://example.com&a=b">http://example.com&amp;a=b</a>&lt;/div&gt;';
+
+        $template = $twig->createTemplate('{{ text|e|urls_to_html }}');
         $actual = $twig->render($template, ['text' => $text]);
 
         $this->assertSame($expected, $actual);

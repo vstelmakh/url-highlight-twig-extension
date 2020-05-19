@@ -1,13 +1,20 @@
 {
     "name": "vstelmakh/url-highlight-twig-extension",
-    "description": "Twig extension for url highlight library",
+    "description": "Twig extension for Url highlight library",
     "keywords": ["twig", "extension", "highlight", "url", "html"],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/vstelmakh/url-highlight-twig-extension",
+    "authors": [
+        {
+            "name": "Volodymyr Stelmakh",
+            "homepage": "https://github.com/vstelmakh"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "twig/twig": "^1.38|^2.7|^3",
-        "vstelmakh/url-highlight": "^1.2"
+        "vstelmakh/url-highlight": "^2"
     },
     "require-dev" : {
         "phpunit/phpunit": "^8",
