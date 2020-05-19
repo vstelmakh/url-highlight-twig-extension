@@ -1,6 +1,6 @@
 {
     "name": "vstelmakh/url-highlight-twig-extension",
-    "description": "Twig extension for url highlight library",
+    "description": "Twig extension for Url highlight library",
     "keywords": ["twig", "extension", "highlight", "url", "html"],
     "type": "library",
     "license": "MIT",
