@@ -7,5 +7,5 @@ parameters:
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         -
-            message: '#Cannot access offset 0 on (callable(): mixed)|null.#'
+            message: '#Cannot access offset \d+ on \(callable\(\): mixed\)\|null\.#'
             path: %rootDir%/../../../tests/UrlHighlightExtensionTest.php
