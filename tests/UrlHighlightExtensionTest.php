@@ -41,11 +41,11 @@ class UrlHighlightExtensionTest extends TestCase
         $urlsToHtmlFilter = $filters[0];
 
         $name = $urlsToHtmlFilter->getName();
-        $this->assertSame('urls_to_html', $name);
+        self::assertSame('urls_to_html', $name);
 
         $callable = $urlsToHtmlFilter->getCallable();
-        $this->assertInstanceOf(UrlHighlight::class, $callable[0]);
-        $this->assertSame('highlightUrls', $callable[1]);
+        self::assertInstanceOf(UrlHighlight::class, $callable[0]);
+        self::assertSame('highlightUrls', $callable[1]);
     }
 
     /**
@@ -63,7 +63,7 @@ class UrlHighlightExtensionTest extends TestCase
         $template = $twig->createTemplate('{{ text|urls_to_html }}');
         $actual = $twig->render($template, ['text' => $text]);
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -75,13 +75,13 @@ class UrlHighlightExtensionTest extends TestCase
     {
         $twig = $this->createTwig($this->urlHighlightExtension);
 
-        $text = '<a href="http://example.com&a=b">http://example.com</a> and <div>http://example.com&a=b</div>';
-        $expected = '&lt;a href=&quot;<a href="http://example.com&a=b">http://example.com&amp;a=b</a>&quot;&gt;<a href="http://example.com">http://example.com</a>&lt;/a&gt; and &lt;div&gt;<a href="http://example.com&a=b">http://example.com&amp;a=b</a>&lt;/div&gt;';
+        $text = '<a href="http://example.com?a=1&b=2">http://example.com</a> and <div>http://example.com?a=1&b=2</div>';
+        $expected = '&lt;a href=&quot;<a href="http://example.com?a=1&b=2">http://example.com?a=1&amp;b=2</a>&quot;&gt;<a href="http://example.com">http://example.com</a>&lt;/a&gt; and &lt;div&gt;<a href="http://example.com?a=1&b=2">http://example.com?a=1&amp;b=2</a>&lt;/div&gt;';
 
         $template = $twig->createTemplate('{{ text|e|urls_to_html }}');
         $actual = $twig->render($template, ['text' => $text]);
 
-        $this->assertSame($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
