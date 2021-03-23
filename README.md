@@ -40,8 +40,9 @@ Use `urls_to_html` filter in your templates:
 {# output: Basic example <a href="http://example.com">http://example.com</a> #}
 ```
 
-To properly handle HTML entity escaped string, use [Encoder](https://github.com/vstelmakh/url-highlight#encoder).  
-See configuration example below.
+To properly handle HTML entity escaped string, use [Encoder](https://github.com/vstelmakh/url-highlight#encoder). See configuration example below.
+
+**Warning: the filter considers the input string being already safe, and it will print any HTML tag in it. It is the developer's responsability to sanitise the input before passing it to `urls_to_html`.**
 
 ## Configuration
 Additional options could be provided via UrlHighlight constructor. For more details see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
