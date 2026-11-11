@@ -1,13 +1,18 @@
-# Twig url highlight
+# Twig URL Highlight
+
+> [!WARNING]
+> This package is no longer maintained and only supports URL Highlight v3.
+> Use [URL Highlight](https://github.com/vstelmakh/url-highlight) directly and follow its documentation.
+
 [![Build status](https://github.com/vstelmakh/url-highlight-twig-extension/workflows/build/badge.svg?branch=master)](https://github.com/vstelmakh/url-highlight-twig-extension/actions)
 [![Packagist version](https://img.shields.io/packagist/v/vstelmakh/url-highlight-twig-extension?color=orange)](https://packagist.org/packages/vstelmakh/url-highlight-twig-extension)
 [![PHP version](https://img.shields.io/packagist/php-v/vstelmakh/url-highlight-twig-extension)](https://www.php.net/)
 [![License](https://img.shields.io/github/license/vstelmakh/url-highlight-twig-extension?color=yellowgreen)](LICENSE)
 
-Twig extension for [Url highlight](https://github.com/vstelmakh/url-highlight) library  
+Twig extension for [URL Highlight](https://github.com/vstelmakh/url-highlight) library  
 
 ## Installation
-Using Symfony? There is a bundle available: [Url highlight symfony bundle](https://github.com/vstelmakh/url-highlight-symfony-bundle)  
+Using Symfony? There is a bundle available: [URL Highlight Symfony bundle](https://github.com/vstelmakh/url-highlight-symfony-bundle)  
 
 Install the latest version with:  
 ```bash
@@ -45,7 +50,7 @@ To properly handle HTML entity escaped string, use [Encoder](https://github.com/
 **Warning: the filter considers the input string being already safe, and it will print any HTML tag in it. It is the developer's responsability to sanitise the input before passing it to `urls_to_html`.**
 
 ## Configuration
-Additional options could be provided via UrlHighlight constructor. For more details see: Url highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
+Additional options could be provided via UrlHighlight constructor. For more details see: URL Highlight [configuration](https://github.com/vstelmakh/url-highlight#configuration).
 
 Example:
 ```php
